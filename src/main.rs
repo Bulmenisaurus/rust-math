@@ -1,5 +1,3 @@
-use std::cmp;
-
 const DIGITS_LEN: usize = 25;
 
 fn main() {
@@ -54,10 +52,8 @@ fn mul_2_digits(digits: [i8; DIGITS_LEN]) -> [i8; DIGITS_LEN] {
 
         let next_digit = carry;
         // if currently at the DIGITS_LENth digit, don't set next (as it is out of bounds)
-        if i + 1 == DIGITS_LEN {
-            return;
-        } else if carry != 0 {
-            // otherwise, set the next digit to the carry otherwise
+        // otherwise, set the next digit to the carry otherwise
+        if i + 1 != DIGITS_LEN && carry != 0 {
             new_digits[i + 1] = next_digit;
         }
     });
