@@ -1,4 +1,4 @@
-const DIGITS_LEN: usize = 25;
+const DIGITS_LEN: usize = 30;
 
 fn main() {
     let mut digits = [-1; DIGITS_LEN];
