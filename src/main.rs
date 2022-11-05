@@ -1,3 +1,5 @@
+use std::io::{stdout, Write};
+
 const DIGITS_LEN: usize = 25;
 
 fn main() {
@@ -6,13 +8,17 @@ fn main() {
     let mut i: u64 = 0;
     println!("checking last {} digits", DIGITS_LEN);
 
+    let mut output = stdout();
+
     loop {
         if is_only_pow2(digits) {
-            println!("found 2^{}", i);
+            println!("\nfound 2^{}", i);
+            return;
         }
 
-        if i % 10_000_000 == 0 {
-            println!("Scanned {}", i);
+        if i % 100_000_000 == 0 {
+            print!("\rScanned {}", i);
+            output.flush().unwrap();
         }
 
         digits = mul_2_digits(digits);
