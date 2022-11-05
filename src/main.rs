@@ -1,6 +1,6 @@
 use std::io::{stdout, Write};
 
-const DIGITS_LEN: usize = 25;
+const DIGITS_LEN: usize = 26;
 
 fn main() {
     let mut digits = [0; DIGITS_LEN];
@@ -16,8 +16,8 @@ fn main() {
             return;
         }
 
-        if i % 100_000_000 == 0 {
-            print!("\rScanned {}", i);
+        if i % 1_000_000_000 == 0 {
+            print!("\rScanned {} billion", i / 1_000_000_000);
             output.flush().unwrap();
         }
 
