@@ -1,6 +1,6 @@
 use std::io::{stdout, Write};
 
-const DIGITS_LEN: usize = 26;
+const DIGITS_LEN: usize = 32;
 
 fn main() {
     let mut digits = [0; DIGITS_LEN];
