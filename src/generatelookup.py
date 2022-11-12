@@ -31,7 +31,7 @@ down by two when querying.
 def main():
     # runs through powers of two, just looking at the last N digits until it finds a repeat
 
-    n_digits = 2
+    n_digits = 3
     encountered: list[int] = []
     lookup_array: list[int] = []
 
