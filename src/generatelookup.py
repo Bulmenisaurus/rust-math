@@ -62,7 +62,7 @@ def main():
 
     newline = '\n'
     rust_code_table = [
-        f"    {'true, ' if only_pow_2(str(line).rjust(3, '0')) else 'false,'} // {line}" for line in lookup_array]
+        f"    {'true, ' if only_pow_2(str(line)) else 'false,'} // {line}" for line in lookup_array]
     rust_code_lookup = f"const LOOKUP_ARRAY: [bool; {len(lookup_array)}] = [\n{newline.join(rust_code_table)}\n];"
 
     rust_code_function = f"""
