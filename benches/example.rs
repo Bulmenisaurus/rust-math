@@ -1,4 +1,4 @@
-use criterion::{criterion_group, criterion_main, Criterion};
+use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use std::io::{stdout, Write};
 
 const DIGITS_LEN: usize = 40;
@@ -18,6 +18,7 @@ fn basic_multiplication(bench: &mut Criterion) {
 
     bench.bench_function("basic", |b| {
         b.iter(|| {
+            black_box(123);
             for _ in 0..BENCHMARK_LOOP_LENGTH {
                 if is_only_pow2(digits) {
                     println!("\nfound 2^{}", i);
@@ -66,6 +67,7 @@ fn simplified_basic_multiplication(bench: &mut Criterion) {
 
     bench.bench_function("simplified", |b| {
         b.iter(|| {
+            black_box(123);
             for _ in 0..BENCHMARK_LOOP_LENGTH {
                 if is_only_pow2(digits) {
                     println!("\nfound 2^{}", i);
