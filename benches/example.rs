@@ -3,22 +3,21 @@ use std::io::{stdout, Write};
 
 const DIGITS_LEN: usize = 40;
 // how many iterations of the algorithm to run
-const BENCHMARK_LOOP_LENGTH: usize = 1_000_000;
+const BENCHMARK_LOOP_LENGTH: usize = 10_000_000;
 
 fn is_only_pow2(digits: [u8; DIGITS_LEN]) -> bool {
     digits.iter().all(|&m| m == 1 || m == 2 || m == 4 || m == 8)
 }
 
 fn basic_multiplication(bench: &mut Criterion) {
-    let mut digits = [0; DIGITS_LEN];
-    digits[0] = 1;
-    let mut i: u64 = 0;
-
     let mut output = stdout();
 
     bench.bench_function("basic", |b| {
         b.iter(|| {
-            black_box(123);
+            let mut digits = [0; DIGITS_LEN];
+            digits[0] = 1;
+            let mut i: u64 = 0;
+
             for _ in 0..BENCHMARK_LOOP_LENGTH {
                 if is_only_pow2(digits) {
                     println!("\nfound 2^{}", i);
@@ -33,6 +32,7 @@ fn basic_multiplication(bench: &mut Criterion) {
                 digits = basic_multiplication_mul_2_digits(digits);
                 i += 1;
             }
+            black_box(digits[0]);
         })
     });
 }
@@ -59,15 +59,14 @@ fn basic_multiplication_mul_2_digits(digits: [u8; DIGITS_LEN]) -> [u8; DIGITS_LE
 }
 
 fn simplified_basic_multiplication(bench: &mut Criterion) {
-    let mut digits = [0; DIGITS_LEN];
-    digits[0] = 1;
-    let mut i: u64 = 0;
-
     let mut output = stdout();
 
     bench.bench_function("simplified", |b| {
         b.iter(|| {
-            black_box(123);
+            let mut digits = [0; DIGITS_LEN];
+            digits[0] = 1;
+            let mut i: u64 = 0;
+
             for _ in 0..BENCHMARK_LOOP_LENGTH {
                 if is_only_pow2(digits) {
                     println!("\nfound 2^{}", i);
@@ -82,6 +81,7 @@ fn simplified_basic_multiplication(bench: &mut Criterion) {
                 digits = simplified_multiplication_mul_2_digits(digits);
                 i += 1;
             }
+            black_box(digits[0]);
         })
     });
 }
