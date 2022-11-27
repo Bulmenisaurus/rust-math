@@ -1,7 +1,7 @@
 use std::io::{stdout, Write};
 
-const DIGITS_LEN: usize = 32;
-const SKIP_POW_2: u64 = 437334515190;
+const DIGITS_LEN: usize = 36;
+const SKIP_POW_2: u64 = 4572950197771;
 
 fn main() {
     let mut digits = [0; DIGITS_LEN];
